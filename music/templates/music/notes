@@ -1,0 +1,13 @@
+<li class="nav-item {% block addalbum_status %}{% endblock %}"><a href="{% url 'music:album-add' %}" class="nav-link"><i class="fa fa-plus-circle mr-2"></i>Add Album</a></li>
+                    <li class="nav-item {% block addsong_status %}{% endblock %}"><a href="{% url 'music:song-add' %}" class="nav-link"><i class="fa fa-plus-circle mr-2"></i>Add Song</a></li>
+                    <form action="{% url 'music:album-delete' album.pk %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="album_id" value="{{ album.id }}"/>
+                    <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash-o"></i></a></button>
+                </form>
+                <a href="{% url 'music:album-update' album.pk %}"><button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button></a>
+                                    <form action="{% url 'music:song-delete' song.pk %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="song_id" value="{{ song.id }}"/>
+                        <button class="btn btn-md btn-danger" type="submit"><i class="fa fa-trash-o"></i></a></button>
+                    </form>

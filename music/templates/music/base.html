@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Viberr{% endblock %}</title>
+    <!-- Loads the path to your static files -->
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<link rel="stylesheet" href="{% static 'music/style.css' %}" type="text/css" >
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <!-- HEADER -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="{% url 'music:index' %}" class="navbar-brand" style="font-family: 'Dancing Script', cursive; font-size: 2em;">Viberr</a>
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {% block album_status %}{% endblock %}">
+                        <a href="{% url 'music:index' %}" class="nav-link"><i class="fa fa-music  mr-2"></i>Albums</a>
+                    </li>
+                    <li class="nav-item {% block song_status %}{% endblock %}">
+                        <a href="{% url 'music:song-view' %}" class="nav-link"><i class="fa fa-microphone mr-2"></i>Songs</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav text-align-right">
+                    <li class="nav-item {% block addalbum_status %}{% endblock %}"><a href="{% url 'music:album-add' %}" class="nav-link"><i class="fa fa-plus-circle mr-2"></i>Add Album</a></li>
+                    <li class="nav-item {% block addsong_status %}{% endblock %}"><a href="{% url 'music:song-add' %}" class="nav-link"><i class="fa fa-plus-circle mr-2"></i>Add Song</a></li>
+                    <li class="nav-item {% block signup_status %}{% endblock %}"><a href="{% url 'music:register' %}" class="nav-link"><i class="fa fa-user-plus mr-2"></i>Sign Up</a></li>
+                </ul>
+            </div>   
+    </nav>
+    {% block body %}
+    {% endblock %}
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

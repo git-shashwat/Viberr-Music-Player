@@ -1,0 +1,26 @@
+{% extends "music/base.html" %}
+{% block song_status %}active{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <table class="table table-striped table-dark">
+        <th>Album Name</th>
+        <th>Song Name</th>
+        <th>View/Delete</th>
+        {% for song in all_songs %}
+            <tr>
+                <td>{{ song.album.album_title }}</td>
+                <td>{{ song.song_title }}</td>  
+                <td>
+                    <button class="btn btn-primary mr-2"><a href="{% url 'music:detail' song.album.pk %}">View Details</a></button>
+                    <form action="{% url 'music:song-delete' song.pk %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="song_id" value="{{ song.id }}"/>
+                        <button class="btn btn-md btn-danger" type="submit"><i class="fa fa-trash-o"></i></a></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+{% endblock body %}

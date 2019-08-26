@@ -1,0 +1,13 @@
+{% extends "music/base.html" %}
+{% block title %}Register{% endblock %}
+{% block signup_status %}active{% endblock %}
+
+{% block body %}
+<div class="container mt-5" style="font-family: 'Raleway', sans-serif; font-size: 1.3em;">
+    <h2 class="mb-5">Create a new account</h2>
+    <form action="" class="form-horizontal" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include "music/form-template.html" %}
+    </form>
+</div>
+{% endblock  %}

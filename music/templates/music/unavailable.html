@@ -1,0 +1,8 @@
+{% extends "music/base.html" %}
+{% load staticfiles %}
+{% block body %}
+<h1 style="font-family: 'Raleway', sans-serif;">The Requested Album Does not exist.</h1>
+<div class="embed-responsive embed-responsive-21by9">
+        <iframe class="embed-responsive-item" src="{% static 'music/images/funnyDog.gif' %}" allowfullscreen></iframe>
+      </div>
+{% endblock %}

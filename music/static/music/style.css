@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(168, 165, 165);
+}
+a {
+    color: white;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+.container-fluid {
+    display: flex;
+    justify-content: space-around;
+}
+#albumCard {
+    width: 500px;
+}
+@media (max-width: 576px){
+    .container-fluid {
+        flex-direction: column;
+    }
+    #albumCard {
+        width: 320px;
+    }
+}
