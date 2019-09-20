@@ -1,4 +1,5 @@
 from django.db import models
+# To generate url corresponding to view.
 from django.urls import reverse
 
 # from django.urls import reverse
