@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="{% static 'music/images/favicon.ico' %}" type="image/x-icon">
 </head>
 <body>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -30,9 +31,14 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav text-align-right">
-                    <li class="nav-item {% block addalbum_status %}{% endblock %}"><a href="{% url 'music:album-add' %}" class="nav-link"><i class="fa fa-plus-circle mr-2"></i>Add Album</a></li>
-                    <li class="nav-item {% block addsong_status %}{% endblock %}"><a href="{% url 'music:song-add' %}" class="nav-link"><i class="fa fa-plus-circle mr-2"></i>Add Song</a></li>
-                    <li class="nav-item {% block signup_status %}{% endblock %}"><a href="{% url 'music:register' %}" class="nav-link"><i class="fa fa-user-plus mr-2"></i>Sign Up</a></li>
+                    {% block addAlbum %}{% endblock %}
+                    {% block addSong %}{% endblock %}
+                    {% block signup %}
+                        <li class="nav-item {% block signin_status %}{% endblock %}"><a href="{% url 'music:register' %}" class="nav-link"><i class="fa fa-user-plus mr-2"></i>Sign Up</a></li>
+                    {% endblock %}
+                    {% block signin %}
+                        <li class="nav-item {% block login_status %}{% endblock %}"><a href="" class="nav-link"><i class="fa fa-sign-in mr-2"></i>Sign In</a></li>
+                    {% endblock %}
                 </ul>
             </div>   
     </nav>

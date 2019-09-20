@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+# from django.urls import reverse
 class Album(models.Model):
     artist = models.CharField(max_length = 250, verbose_name = 'Artist')
     album_title = models.CharField(max_length = 500, verbose_name = 'Title')
